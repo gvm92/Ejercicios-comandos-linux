@@ -2,16 +2,28 @@
 Ejercicios comandos Linux
 
 1. Listar todos los archivos del directorio bin.
+  ls /bin
 2. Listar todos los archivos del directorio tmp.
+  ls /tmp
 3. Listar todos los archivos del directorio etc que empiecen por t en orden inverso.
+  ls –r /etc/t*
 4. Listar todos los archivos del directorio dev que empiecen por tty y tengan 5 caracteres.
+  ls /dev/tty??
 5. Listar todos los archivos del directorio dev que empiecen por tty y acaben en 1,2,3 ó 4.
+  ls /dev/tty*[1-4]
 6. Listar todos los archivos del directorio dev que empiecen por t y acaben en C1.
+  ls /dev/t/C1
 7. Listar todos los archivos, incluidos los ocultos, del directorio raíz.
+  ls –a /
 8. Listar todos los archivos del directorio etc que no empiecen por t.
+  ls –d /etc/[^t]*
 9. .Listar todos los archivos del directorio usr y sus subdirectorios.
+  ls –R /usr
 10. Cambiarse al directorio tmp, crear directorio PRUEBA.
+  cd /tmp
+  mkdir PRUEBA
 11. Verificar que el directorio actual ha cambiado.
+  ls -i
 12. Mostrar el día y la hora actual.
 13. Con un solo comando posicionarse en el directorio $HOME.
 14. Verificar que se está en él.

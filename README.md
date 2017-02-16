@@ -45,31 +45,32 @@ Ejercicios comandos Linux
 18. Copiar el archivo /etc/motd a un archivo llamado mensaje de vuestro directorio PRUEBA.  
   cp /etc/motd ./PRUEBA
 19. Copiar mensaje en dir1, dir2 y dir3.  
- 
+ cd PRUEBA  
+ cp mensaje dir1/mensaje && cp mensaje dir2/mensaje && cp mensaje dir3/mensaje
 20. Comprobar el ejercicio anterior mediante un solo comando.  
-
+ ls -R PRUEBA
 21. Copiar los archivos del directorio rc.d que se encuentra en /etc al directorio dir31.  
-
+ cp -r /etc/rc.d dir31
 22. Copiar en el directorio dir311 los archivos de /bin que tengan una a como segunda letra y su nombre tenga cuatro letras.  
-
+ 
 23. Copiar el directorio de otro usuario y sus subdirectorios debajo de dir11 (incluido el propio directorio).  
-
+ 
 24. Mover el directorio dir31 y sus subdirectorios debajo de dir2.  
-
+ 
 25. Mostrar por pantalla los archivos ordinarios del directorio HOME y sus subdirectorios.  
-
+ 
 26. Ocultar el archivo mensaje del directorio dir3.  
-
+ 
 27. Borrar los archivos y directorios de dir1, incluido el propio directorio.  
-
+ 
 28. Copiar al directorio dir312 los ficheros del directorio /dev que empiecen por t, acaben en una letra que vaya de la a a la b y tengan cinco letras en su nombre.  
-
+ 
 29. Borrar los archivos de dir312 que no acaben en b y tengan una q como cuarta letra.  
-
+ 
 30. Mover el directorio dir312 debajo de dir3.  
-
+ 
 31. Crear un enlace simbólico al directorio dir1 dentro del directorio dir3 llamado enlacedir1.  
-
+ 
 32. Posicionarse en dir3 y, empleando el enlace creado en el ejercicio anterior, crear el directorio nuevo1 dentro de dir1.  
 
 33. Utilizando el enlace creado copiar los archivos que empiecen por u del directorio /bin en directorio nuevo1.  

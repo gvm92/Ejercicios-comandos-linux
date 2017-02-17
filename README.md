@@ -35,51 +35,51 @@ Ejercicios comandos Linux
 16. Borrar todos los archivos y directorios visibles de vuestro directorio PRUEBA.  
   rm -rf PRUEBA/*
 17. Crear los directorios dir1, dir2 y dir3 en el directorio PRUEBA. Dentro de dir1 crear el directorio dir11. Dentro del directorio dir3 crear el directorio dir31. Dentro del directorio dir31, crear los directorios dir311 y dir312.  
-  mkdir /PRUEBA/dir1
-  mkdir /PRUEBA/dir1/dir11
-  mkdir /PRUEBA/dir2
-  mkdir /PRUEBA/dir3
-  mkdir /PRUEBA/dir3/dir31
-  mkdir /PRUEBA/dir3/dir31/dir311
-  mkdir /PRUEBA/dir3/dir31/dir312
+  mkdir PRUEBA/dir1  
+  mkdir PRUEBA/dir1/dir11  
+  mkdir PRUEBA/dir2  
+  mkdir PRUEBA/dir3  
+  mkdir PRUEBA/dir3/dir31  
+  mkdir PRUEBA/dir3/dir31/dir311  
+  mkdir PRUEBA/dir3/dir31/dir312  
 18. Copiar el archivo /etc/motd a un archivo llamado mensaje de vuestro directorio PRUEBA.  
-  cp /etc/motd ./PRUEBA
+  sudo touch /etc/motd PRUEBA/mensaje  
 19. Copiar mensaje en dir1, dir2 y dir3.  
  cd PRUEBA  
  cp mensaje dir1/mensaje && cp mensaje dir2/mensaje && cp mensaje dir3/mensaje
 20. Comprobar el ejercicio anterior mediante un solo comando.  
- ls -R PRUEBA
+ ls -R PRUEBA  
 21. Copiar los archivos del directorio rc.d que se encuentra en /etc al directorio dir31.  
- cp -r /etc/rc.d dir31
+ cp -r /etc/rc.d dir31  
 22. Copiar en el directorio dir311 los archivos de /bin que tengan una a como segunda letra y su nombre tenga cuatro letras.  
- cp -r /bin/?a?? PRUEBA/dir3/dir31/dir311
+ cp -r /bin/?a?? PRUEBA/dir3/dir31/dir311  
 23. Copiar el directorio de otro usuario y sus subdirectorios debajo de dir11 (incluido el propio directorio).  
-  sudo cp -r ../usuario2 PRUEBA/dir1/dir11
+  sudo cp -r ../usuario2 PRUEBA/dir1/dir11  
 24. Mover el directorio dir31 y sus subdirectorios debajo de dir2.  
- mv PRUEBA/dir3/dir31 PRUEBA/dir2
+ mv PRUEBA/dir3/dir31 PRUEBA/dir2  
 25. Mostrar por pantalla los archivos ordinarios del directorio HOME y sus subdirectorios.  
- ls -R $HOME
+ ls -R $HOME  
 26. Ocultar el archivo mensaje del directorio dir3.  
- 
+ mv PRUEBA/dir3/mensaje PRUEBA/dir3/.mensaje  
 27. Borrar los archivos y directorios de dir1, incluido el propio directorio.  
- rm -rf PRUEBA/dir1
+ rm -rf PRUEBA/dir1  
 28. Copiar al directorio dir312 los ficheros del directorio /dev que empiecen por t, acaben en una letra que vaya de la a a la b y tengan cinco letras en su nombre.  
- cp /dev/t???[a-b] /home/ubuntu/PRUEBA/dir3/dir31/dir312
+ cp /dev/t???[a*b] /home/ubuntu/PRUEBA/dir3/dir31/dir312  
 29. Borrar los archivos de dir312 que no acaben en b y tengan una q como cuarta letra.  
- 
+ rm -r PRUEBA/dir2/dir31/dir312/???q[^b]
 30. Mover el directorio dir312 debajo de dir3.  
- 
+ mv PRUEBA/dir2/dir31/dir312 PRUEBA/dir3
 31. Crear un enlace simbólico al directorio dir1 dentro del directorio dir3 llamado enlacedir1.  
- 
+ ln -s /home/ubuntu/PRUEBA/dir1 PRUEBA/dir3/enlacedir1
 32. Posicionarse en dir3 y, empleando el enlace creado en el ejercicio anterior, crear el directorio nuevo1 dentro de dir1.  
-
+ mkdir enlacedir1/nuevo1
 33. Utilizando el enlace creado copiar los archivos que empiecen por u del directorio /bin en directorio nuevo1.  
 
 34. Crear dos enlaces duros del fichero fich1, llamarlo enlace, en los directorios dir1 y dir2.  
 35. Borrar el archivo fich1 y copiar enlace en dir3.  
 
 36. Crear un enlace simbólico (llamado enlafich1) al fichero enlace de dir2 en dir1.  
-
+ ln -s /home/ubuntu/PRUEBA/dir2 /home/ubuntu/PRUEBA/dir1/enlafich1
 37. Posicionarse en dir1 y, mediante el enlace creado, copiar el archivo fichl dentro de dir311.  
 
 38. Seguir en dir1 y, mediante el enlace creado, sacar por pantalla las líneas que tiene el archivo fich1.  

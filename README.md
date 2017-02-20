@@ -231,7 +231,7 @@ Ejercicios comandos Linux
 86. Obtener un listado con los siguientes datos de los procesos de su shell actual.  
  
 87. Mostrar cuantos usuarios tiene registrados el sistema (el registro de usuarios está en el archivo /etc/passwd)  
-
+ 
 88. Mostrar cuántos usuarios tiene registrados el sistema y que utilizan el intérprete bash (debe aparecer al final de la línea /bin/bash o similar)  
 
 89. Mostrar cuantos usuarios hay conectados  

@@ -110,50 +110,85 @@ Ejercicios comandos Linux
  chmod 751 dir2
  mkdir dir2/dir21
 47. ¿Cuáles son los valores por omisión asignados a los archivos?  
-
+ ls -l dir2
 48. Cambiar el directorio actual al directorio dir3. Imprimir su trayectoria completa para verificar el cambio.  
-
+ cd ..
+ cd dir3
+ ls -lR
 49. ¿Cuáles son los permisos asignados en su momento a este directorio?  
-
+ ls -lR
 50. Reiniciar el ordenador.  
-
+ reboot
 51. Crear cuatro nuevos directorios llamados dira, dirb, dirc, y dird bajo el directorio actual.  
-
+ mkdir dira
+ mkdir dirb
+ mkdir dirc
+ mkdir dird
 52. Comprobar los permisos de acceso de los directorios recién creados para comprobar el funcionamiento del comando umask.  
-
+ ls -l
 53. Crear el fichero uno . Quitarle todos los permisos de lectura. Comprobarlo. Intentar borrar dicho fichero.  
-
+ touch uno
+ chmod a-r uno
+ ls -l
+ rm uno
 54. Quitarle todos los permisos de paso al directorio dir2 y otorgarle todos los demás.  
-
-55. Crear en el directorio propio:   El directorio carpeta1 con los tres permisos para el propietario, dentro de él fich1 con lectura y escritura para todos y fich2 con lectura y escritura para el propietario y solo lectura para el resto. El directorio carpeta2 con todos los permisos para el propietario y lectura y ejecución para los del mismo grupo. Dentro file1 con lectura y escritura para el propietario y los del grupo y file2 con los mismos para el propietario y solo lectura para el grupo.  
-
+ chmod = dir2
+ chmod o=rwx dir2
+55. Crear en el directorio propio:  
+ El directorio carpeta1 con los tres permisos para el propietario, dentro de él fich1 con lectura y escritura para todos y fich2 con lectura y escritura para el propietario y solo lectura para el resto.  
+ El directorio carpeta2 con todos los permisos para el propietario y lectura y ejecución para los del mismo grupo. Dentro file1 con lectura y escritura para el propietario y los del grupo y file2 con los mismos para el propietario y solo lectura para el grupo.  
+ mkdir carpeta1
+ chmod u=rwx,g=,o= carpeta1
+ touch carpeta1/fich1
+ touch carpeta1/fich2
+ chmod = carpeta1/fich1
+ chmod = carpeta1/fich2
+ chmod o=rw carpeta1/fich1
+ ls -l
+ 
+ mkdir carpeta2
+ chmod u=rwx,g=rx,o= carpeta2
+ touch carpeta2/file1
+ touch carpeta2/file2
+ chmod = carpeta2/file2
+ chmod = carpeta2/file1
+ chmod u=rw,g=rw carpeta2/file1
+ chmod u=rw,g=r carpeta2/file2
+ ls -l
+ 
 56. Desde otro usuario probar todas las operaciones que se pueden hacer en los ficheros y directorios creados.  
-
+ ls -lR
 57. Visualizar la trayectoria completa del directorio actual. Crear dos directorios llamados correo y fuentes debajo del directorio actual.  
-
+ mkdir correo
+ mkdir fuentes
 58. Posicionarse en el directorio fuentes y crear los directorios dir1, dir2, dir3.  
-
-59. Crear el directorio menus bajo correo sin moverse del directorio actual.
+ cd fuentes
+ mkdir dir1
+ mkdir dir2
+59. Crear el directorio menus bajo correo sin moverse del directorio actual.  
+ mkdir ../correo/menus
 60. Posicionarse en el directorio HOME. Borrar los directorios que cuelgan de fuentes que acaben en un número que no sea el 1.  
-
+ cd $HOME
 61. Ver si existe el archivo tty2 en el directorio dev. En caso de que exista, ver su fecha de creación o actualización.  
-
+  find PRUEBA/fuentes -type d -name "tty2" -exec ls -l {} \;
 62. Ver los permisos que tienen los archivos que empiecen por tt del directorio /dev.  
-
+ ls -l /dev/tt*
 63. Visualizar la lista de los archivos ordinarios que están en el directorio /usr/bin.  
-
+ find /usr/bin -type d -name "*" -exec ls -l {} \;
 64. Visualizar la lista de todos los directorios que cuelgan del raíz.  
-
+ find / -type d -name "*" -exec ls {} \;
 65. Visualizar la lista de todos los ficheros que pertenezcan a root.  
-
+ find / -user root -type f
 66. Visualizar la lista de todos los ficheros .h del directorio /usr/include.  
-
+ find /usr/include -type f -regex ".*.h"
 67. Ejecutar todos los comandos que empiecen por ls del directorio /bin.  
-
+ ls /bin/ls*
 68. Visualizar de qué tipo son todos y cada uno de ficheros de todo el árbol del sistema propiedad de un usuario conocido.  
-
+ find /home/ubuntu -exec file --mime-type -0 '{}' \;
 69. Crear el directorio uno en el directorio HOME con permiso de escritura y paso para el propietario, de lectura y paso para los usuarios de su mismo grupo y ningún permiso para el resto de usuarios.  
-
+ mkdir uno
+ chmod u=rw,g=rw,o= uno
+ ls -ld uno
 70. Crear el directorio uno1 dentro del directorio creado en el ejercicio anterior con todos lo permisos para el usuario, ninguno para los usuarios del grupo y permiso de escritura para el resto de usuarios.  
 
 71. Copiar todos los ficheros propiedad de un usuario conocido que acaben en un número en el directorio menus.  

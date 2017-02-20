@@ -72,34 +72,43 @@ Ejercicios comandos Linux
 31. Crear un enlace simbólico al directorio dir1 dentro del directorio dir3 llamado enlacedir1.  
  ln -s /home/ubuntu/PRUEBA/dir1 PRUEBA/dir3/enlacedir1
 32. Posicionarse en dir3 y, empleando el enlace creado en el ejercicio anterior, crear el directorio nuevo1 dentro de dir1.  
+ cd dir3
  mkdir enlacedir1/nuevo1
 33. Utilizando el enlace creado copiar los archivos que empiecen por u del directorio /bin en directorio nuevo1.  
-
+ cp -r /bin/u* enlacedir1/nuevo1/
 34. Crear dos enlaces duros del fichero fich1, llamarlo enlace, en los directorios dir1 y dir2.  
+ ln fich1 dir1/enlace
+ ln fich1 dir2/enlace
 35. Borrar el archivo fich1 y copiar enlace en dir3.  
-
+ rm fich1
+ cp dir1/enlace dir3/
 36. Crear un enlace simbólico (llamado enlafich1) al fichero enlace de dir2 en dir1.  
  ln -s /home/ubuntu/PRUEBA/dir2 /home/ubuntu/PRUEBA/dir1/enlafich1
 37. Posicionarse en dir1 y, mediante el enlace creado, copiar el archivo fichl dentro de dir311.  
-
+ cd dir1
+ cp enlafich1 ../dir2/dir31/dir311/fich1
 38. Seguir en dir1 y, mediante el enlace creado, sacar por pantalla las líneas que tiene el archivo fich1.  
-
+ cat enlafich1
 39. Borrar el fichero fich1 de dir2.  
-
+ rm dir2/fich1
 40. Borrar todos los archivos y directorios creados durante los ejercicios.
-
+ rm -r *
 41. Crear el directorio dir2 y dir3 en el directorio PRUEBA ¿Cuáles son los actuales permisos del directorio dir2?  
-
+ mkdir dir1
+ mkdir dir2
+ ls -l
 42. Utilizando la notación simbólica, eliminar todos los permisos de escritura (propietario, grupo, otros) del directorio dir2.  
-
+ chmod 555 dir2
 43. Utilizando la notación octal, eliminar el permiso de lectura del directorio dir2, al resto de los usuarios.  
-
+ chmod 551 dir2
 44. ¿Cuáles son ahora los permisos asociados a dir2?  
-
+ ls -l
 45. Crear bajo dir2, un directorio llamado dir2l.  
-
+ mkdir dir2/dir21
+ no se puede crear perniso denegado
 46. Concederse a sí mismo permiso de escritura en el directorio dir2 e intentar de nuevo el paso anterior.  
-
+ chmod 751 dir2
+ mkdir dir2/dir21
 47. ¿Cuáles son los valores por omisión asignados a los archivos?  
 
 48. Cambiar el directorio actual al directorio dir3. Imprimir su trayectoria completa para verificar el cambio.  

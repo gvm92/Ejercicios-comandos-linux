@@ -190,39 +190,46 @@ Ejercicios comandos Linux
  chmod u=rw,g=rw,o= uno
  ls -ld uno
 70. Crear el directorio uno1 dentro del directorio creado en el ejercicio anterior con todos lo permisos para el usuario, ninguno para los usuarios del grupo y permiso de escritura para el resto de usuarios.  
-
+ chmod u=rwx,g=rwx,o= uno
+ mkdir uno/uno1
+ chmod u=rwx,g=,o=w uno/uno1
+ ls -ld uno/uno1
 71. Copiar todos los ficheros propiedad de un usuario conocido que acaben en un número en el directorio menus.  
-
+ find /home/usuario2 -type f -regex ".*[0-9]" -exec cp -r '{}' PRUEBA/correo/menus/ \;
 72. Visualiza con la orden who la relación de usuarios conectados y sus terminales. Mediante la orden cat, crea un pequeño mensaje desde tu consola y redirígelo a uno de los terminales conectados.  
-
+ sudo -s
 73. Crea un archivo de tamaño 0  
-
+ touch archivo_tamaño_cero
 74. Visualiza el archivo /etc/motd, que contiene el "mensaje del día".  
-
+ cat /etc/motd
 75. Utilizando de entrada la información de los usuarios conectados al sistema, guardar, ordenadas por el campo hora, las líneas correspondientes al usuario que se desee en el archivo persona.  
-
+ who | grep $USER | sort -k 4 > persona
 76. Crear el directorio carpeta debajo del directorio PRUEBA. Quitarle todos los permisos de lectura. A continuación, buscar todos los directorios que cuelguen del directorio propio y guardarlos en el archivo direc.  
-
+ mkdir carpeta
+ chmod a-r carpeta
+ find ~ -type d > direc
 77. Volver a realizar la segunda parte del ejercicio anterior, pero redireccionando los errores al fichero malos. Comprobar la información del fichero malos.  
-
+ find ~ -type d 2> malo
 78. Añadir al fichero direc la lista de todos los ficheros ordinarios que cuelguen de /etc.  
-
+ find /etc -type f >> direc
 79. Añadir al archivo nuevalista el/los nombre/s de el/los fichero/s del directorio PRUEBA que contengan en su nombre la cadena "ai", añadiendo el posible error al fichero malos.  
-
+ find ./ -type f -not -iname *ai* 1> nuevalista 2> malos
+ find ./ -type f -iname *ai* 1> nuevalista 2> malos
 80. Sacar por pantalla únicamente el tiempo (buscar comando time) que tarda en ejecutarse el comando who.  
-
+  time 'sleep 3'
+  time who -p %e
 81. Sacar por pantalla un listado completo (buscar comando ps) de los procesos que está realizando el usuario root.  
-
+ ps -U root -u root u
 82. Crear el archivo proceso con los procesos que no tienen ningún terminal asignado.  
-
+ ps -U root -u root u | grep -v "'ls /dev'"
 83. Añadir al fichero anterior la fecha actual y la trayectoria completa del directorio actual.  
-
+ echo "'date +"%A %D"' - 'pwd'" >>nuevalista
 84. Sacar por pantalla el listado de todos los usuarios conectados ordenados por número de proceso asignado.  
-
+ ps axu
 85. Averiguar cuál es la actividad actual del sistema. Para ello visualice un listado completo del estado de todos los procesos que se están ejecutando en el sistema.  
-
+ top -d 1 -n 10
 86. Obtener un listado con los siguientes datos de los procesos de su shell actual.  
-
+ 
 87. Mostrar cuantos usuarios tiene registrados el sistema (el registro de usuarios está en el archivo /etc/passwd)  
 
 88. Mostrar cuántos usuarios tiene registrados el sistema y que utilizan el intérprete bash (debe aparecer al final de la línea /bin/bash o similar)  

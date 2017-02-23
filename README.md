@@ -229,31 +229,39 @@ Ejercicios comandos Linux
 85. Averiguar cuál es la actividad actual del sistema. Para ello visualice un listado completo del estado de todos los procesos que se están ejecutando en el sistema.  
  top -d 1 -n 10
 86. Obtener un listado con los siguientes datos de los procesos de su shell actual.  
- 
+ ps -e
 87. Mostrar cuantos usuarios tiene registrados el sistema (el registro de usuarios está en el archivo /etc/passwd)  
- 
+ cat /etc/passwd | wc -l
 88. Mostrar cuántos usuarios tiene registrados el sistema y que utilizan el intérprete bash (debe aparecer al final de la línea /bin/bash o similar)  
-
+ cat /etc/passwd | grep bash
 89. Mostrar cuantos usuarios hay conectados  
-
+ who -q
 90. Mostrar las líneas, de un archivo de texto, empiecen por L (mayúscula o minúscula)  
-
+ man gcc > gcc.man_page
+ cat gcc.man_page | sed -e 's/ //g' > file.filled
+ cat file.filled | grep ^[Ll]
 91. Contar las líneas, del ejemplo anterior  
-
+ cat file.filled | grep ^[Ll] | wc -l
 92. Extraer los nombres de usuario (primer campo) del sistema  
-
+ cat /etc/passwd | cut -d ':' -f 1
 93. Extraer los nombres de usuario y el shell que utilizan (último campo)  
-
+ gawk -F: '{print $1, $7}' /etc/passwd
 94. Cambiar la fecha de creación de un archivo ya previamente creado   
-
+ touch -t 8810011101 good
+ ls -l good
 95. Calcular la firma md5 de un archivo  
-
+ md5sum good
 96. Modificar la firma md5 y detectar que se ha cambiado (revisión de firma)  
-
+ md5sum -c good.MD5
+ md5sum good
+ md5sum -c good.MD5
+ md5sum good
 97. Monitorear la ocupación de las particiones en los discos  
-
+ df -lh
 98. ¿Cual es el proceso que más carga el procesador?  
-
+ for x in `seq 1 10`; do ps -eo pid,pcpu,pmem,user,args | sort -r -k 2 | head -n 2; sleep 3; done
 99. ¿Está corriendo el proceso bash?  
-
+ ps -eo pid,pcpu,pmem,user,args | grep bash
+ ps a | grep bash
 100. ¿Cuántos procesos que empiecen por k están corriendo?  
+ ps -eo args | cut -d ' ' -f 1 | grep ^g | wc -l

@@ -12,7 +12,7 @@ Ejercicios comandos Linux
 5. Listar todos los archivos del directorio dev que empiecen por tty y acaben en 1,2,3 ó 4.  
   ls /dev/tty*[1-4]
 6. Listar todos los archivos del directorio dev que empiecen por t y acaben en C1.  
-  ls /dev/t/C1
+  ls /dev/t*c1
 7. Listar todos los archivos, incluidos los ocultos, del directorio raíz.  
   ls –a /
 8. Listar todos los archivos del directorio etc que no empiecen por t.  
